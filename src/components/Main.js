@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import GridMovie from "./GridMovie"
+import "../css/Main.css"
 
 function Main ({movies, movieInFocus, gridView}) {
 
@@ -7,7 +8,6 @@ function Main ({movies, movieInFocus, gridView}) {
     return <GridMovie movieData={movie}
       key={movie.id}/>
   })
-  console.log(movies)
 
   return(
       <main>
