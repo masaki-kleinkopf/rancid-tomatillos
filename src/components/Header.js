@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import "../css/Header.css"
 
 class Header extends Component {
 
@@ -9,7 +10,9 @@ class Header extends Component {
 
   render() {
     return (
-      <h2>Hello world!</h2>
+      <header>
+        <h1 className="header-text">Rancid Tomatillos</h1>
+      </header>
     )
   }
 
