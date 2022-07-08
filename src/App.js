@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({movies: movieData})
+    this.setState({movies: movieData.movies})
   };
 
   render() {
