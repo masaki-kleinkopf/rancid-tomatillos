@@ -1,17 +1,19 @@
 import React, { Component } from "react"
+import GridMovie from "./GridMovie"
 
-class Main extends Component {
+function Main ({movies, movieInFocus, gridView}) {
 
-  constructor() {
-    super();
-    this.state = {};
-  }
+  const movieCards = movies.map(movie => {
+    return <GridMovie movieData={movie}
+      key={movie.id}/>
+  })
+  console.log(movies)
 
-  render() {
-    return(
-      <h3>Hello world!</h3>
+  return(
+      <main>
+        {gridView ? movieCards : <h1>helloWorld</h1>}
+      </main>
     )
-  }
 
 }
 
