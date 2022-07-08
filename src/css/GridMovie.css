@@ -1,0 +1,9 @@
+.GridMovie {
+  margin: 10px;
+}
+
+.movie-title {
+  inline-size: 175px;
+  overflow-wrap: break-word;
+  text-align: center;
+}

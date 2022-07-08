@@ -1,12 +1,12 @@
 import React from "react"
+import "../css/GridMovie.css"
 
 function GridMovie({movieData}) {
-  console.log(movieData)
 
     return(
       <div className="GridMovie">
         <img src={movieData.poster_path} height="300" width="200"></img>
-        <h2>{movieData.title}</h2>
+        <h2 className="movie-title">{movieData.title}</h2>
       </div>
     )
 
