@@ -1,4 +1,5 @@
 .App {
-  background-color: #080F0F;
-  height: 100%;
+  background: linear-gradient(#080F0F, #684f27);
+  height: auto;
+  background-attachment: fixed;
 }

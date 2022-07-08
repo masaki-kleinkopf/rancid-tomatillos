@@ -1,9 +1,24 @@
 .GridMovie {
-  margin: 10px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.GridMovie:hover {
+  background-color:rgba(164, 186, 183, 0.3);
+  cursor: pointer;
 }
 
 .movie-title {
-  inline-size: 175px;
+  margin: 7px;
+  inline-size: 170px;
   overflow-wrap: break-word;
   text-align: center;
+}
+
+.grid-movie-image {
+  border-radius: 10px
 }
