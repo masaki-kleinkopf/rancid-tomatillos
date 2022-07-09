@@ -1,9 +1,17 @@
 import React from "react"
 
-function SingleMovie () {
+function SingleMovie ({movieInFocus, movies}) {
+
+  const correctMovie = movies.find(movie => movie.id === movieInFocus)
+  console.log(correctMovie)
 
   return (
-    <h1>Hello world!</h1>
+    <div>
+      <img src={correctMovie.poster_path} height="300" width="200"></img>
+      <p>Title: {correctMovie.title}</p>
+      <p>Rating: {correctMovie.average_rating}</p>
+      <p>Release Date {correctMovie.release_date}</p>
+    </div>
   )
 }
 

@@ -14,7 +14,7 @@ function Main ({movies, movieInFocus, gridView, displaySingleMovie}) {
 
   return(
       <main className={gridView ? "main-grid" : "main-single"}>
-        {gridView ? movieCards : <SingleMovie movieInFocus={movieInFocus}/>}
+        {gridView ? movieCards : <SingleMovie movieInFocus={movieInFocus} movies={movies}/>}
       </main>
     )
 
