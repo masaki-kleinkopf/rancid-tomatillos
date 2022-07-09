@@ -3,7 +3,7 @@ import "../css/GridMovie.css"
 
 function GridMovie({movieData, displaySingleMovie}) {
 
-    return(
+    return (
       <div className="GridMovie" onClick={() => displaySingleMovie(movieData.id)}>
         <img src={movieData.poster_path} 
         height="300" 

@@ -7,8 +7,8 @@ function SingleMovie ({movieInFocus, movies}) {
 
   return (
     <div className="SingleMovie" style={{
-    backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
-    url(${correctMovie.backdrop_path})`,
+      backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
+      url(${correctMovie.backdrop_path})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
