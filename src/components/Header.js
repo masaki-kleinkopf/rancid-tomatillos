@@ -1,21 +1,14 @@
 import React, { Component } from "react"
 import "../css/Header.css"
 
-class Header extends Component {
+function Header({gridView, toggleGridView}) {
 
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <header>
-        <h1 className="header-text">Rancid Tomatillos</h1>
-      </header>
-    )
-  }
-
+  return (
+    <header>
+      <h1 className="header-text">Rancid Tomatillos</h1>
+      {!gridView && <button className="header-toggle-button"onClick={toggleGridView}>Return to all movies</button>}
+    </header>
+  )
 }
 
 export default Header;

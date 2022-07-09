@@ -2,9 +2,28 @@ header {
   height: 80px;
   background: linear-gradient(#A52422, #881412 );
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-text {
   margin: 0px;
   padding: 20px;
+}
+
+.header-toggle-button {
+  border: none;
+  background-color: #A4BAB7;
+  height: 30px;
+  width: 200px;
+  margin: 20px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.header-toggle-button:hover {
+  background-color: #EFF2C0;
+  cursor: pointer;
 }
