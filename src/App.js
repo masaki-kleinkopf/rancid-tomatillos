@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Main from "./components/Main"
 import './App.css';
 import movieData from "./sample-data"
+import getData from "./apiCalls"
 
 class App extends Component {
 
@@ -17,17 +18,9 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movie")
-      .then(response => {
-        if (!response.ok) {
-          throw Error (response.text)
-        } else {
-          return response.json()
-        }
-      })
-      .then(data => this.setState({movies: data.movies}))
+    getData("https://rancid-tomatillos.herokuapp.com/api/v2/movie")
+      .then(data => {this.setState({movies: data.movies})})
       .catch(error => {
-        console.log(error)
         this.setState({error:error.message})
       })
   };
