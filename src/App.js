@@ -11,12 +11,25 @@ class App extends Component {
     this.state = {
       movies: [],
       gridView: true,
-      movieInFocus: null
+      movieInFocus: null,
+      error:"",
     };
   }
 
   componentDidMount = () => {
-    this.setState({movies: movieData.movies})
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movie")
+      .then(response => {
+        if (!response.ok) {
+          throw Error (response.text)
+        } else {
+          return response.json()
+        }
+      })
+      .then(data => this.setState({movies: data.movies}))
+      .catch(error => {
+        console.log(error)
+        this.setState({error:error.message})
+      })
   };
 
   toggleGridView = () => {
@@ -40,6 +53,7 @@ class App extends Component {
           gridView={this.state.gridView} 
           movies={this.state.movies}
           movieInFocus={this.state.movieInFocus}/>
+          {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
     );
   }
