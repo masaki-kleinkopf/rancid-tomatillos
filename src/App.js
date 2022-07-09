@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { Component } from "react"
+import Header from "./components/Header"
+import Main from "./components/Main"
 import './App.css';
+import movieData from "./sample-data"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      movies: [],
+      gridView: true,
+      movieInFocus: null
+    };
+  }
+
+  componentDidMount = () => {
+    this.setState({movies: movieData.movies})
+  };
+
+  toggleGridView = () => {
+    if (this.state.movieInFocus) {
+      this.setState({movieInFocus: null})
+    }
+    this.setState({gridView: !this.state.gridView})
+  }
+
+  displaySingleMovie = (id) => {
+    this.toggleGridView();
+    this.setState({movieInFocus: id})
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header toggleGridView={this.toggleGridView}
+          gridView={this.state.gridView}/>
+        <Main displaySingleMovie={this.displaySingleMovie}
+          gridView={this.state.gridView} 
+          movies={this.state.movies}
+          movieInFocus={this.state.movieInFocus}/>
+      </div>
+    );
+  }
 }
 
 export default App;
