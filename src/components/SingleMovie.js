@@ -19,10 +19,13 @@ function SingleMovie ({movieInFocus, movies}) {
         {correctMovie.title}
         <h4 className="single-movie-tagline"> {correctMovie.tagline}</h4>
       </h3>
-      {/* <p className="single-movie-tagline"> {correctMovie.tagline}</p> */}
-      <p className="single-movie-overview">Overview:<br></br>{correctMovie.overview}</p>
-      <p>Average User Rating: {Math.round(correctMovie.average_rating)}</p>
-      <p className="single-movie-info">Release Date: {correctMovie.release_date} Genre:{correctMovie.genres} Revenue: ${correctMovie.revenue} Budget: ${correctMovie.budget}</p>
+      <div className="single-movie-info-container">
+        <p className="single-movie-overview">Overview:<br></br>{correctMovie.overview}</p>
+        <p>Average User Rating: {Math.round(correctMovie.average_rating)}</p>
+        <p className="single-movie-info">
+          Release Date: {correctMovie.release_date} Genre:{correctMovie.genres} Revenue: ${correctMovie.revenue} Budget: ${correctMovie.budget}
+        </p>
+      </div>
     </div>
   )
 }

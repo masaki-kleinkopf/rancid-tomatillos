@@ -1,15 +1,20 @@
 .SingleMovie {
     display:flex;
     flex-direction: column;
-    margin-top:-20px;
+    margin-top: -20px;
 }
 
 .single-movie-title {
-    font-size:xxx-large;
-    margin-top:21%;
-    margin-left:7%;
+    font-size :xxx-large;
+    margin-top: 21%;
+    margin-left: 7%;
 }
 
 .single-movie-tagline {
     font-size: x-large;
 }
+
+.single-movie-info-container {
+    margin-left :3%;
+}
+
