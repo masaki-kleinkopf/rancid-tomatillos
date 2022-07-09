@@ -2,11 +2,13 @@ import React, { Component } from "react"
 import GridMovie from "./GridMovie"
 import "../css/Main.css"
 
-function Main ({movies, movieInFocus, gridView}) {
+function Main ({movies, movieInFocus, gridView, toggleGridView}) {
 
   const movieCards = movies.map(movie => {
     return <GridMovie movieData={movie}
-      key={movie.id}/>
+      key={movie.id}
+      toggleGridView={toggleGridView}
+      />
   })
 
   return(
