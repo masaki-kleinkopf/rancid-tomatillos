@@ -1,10 +1,10 @@
 import React from "react"
 import "../css/GridMovie.css"
 
-function GridMovie({movieData, toggleGridView}) {
+function GridMovie({movieData, displaySingleMovie}) {
 
     return(
-      <div className="GridMovie" onClick={toggleGridView}>
+      <div className="GridMovie" onClick={() => displaySingleMovie(movieData.id)}>
         <img src={movieData.poster_path} 
         height="300" 
         width="200"

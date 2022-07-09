@@ -23,12 +23,17 @@ class App extends Component {
     this.setState({gridView: !this.state.gridView})
   }
 
+  displaySingleMovie = (id) => {
+    this.toggleGridView();
+    this.setState({movieInFocus: id})
+  }
+
   render() {
     return (
       <div className="App">
         <Header toggleGridView={this.toggleGridView}
           gridView={this.state.gridView}/>
-        <Main toggleGridView={this.toggleGridView}
+        <Main displaySingleMovie={this.displaySingleMovie}
           gridView={this.state.gridView} 
           movies={this.state.movies}
           movieInFocus={this.state.movieInFocus}/>
