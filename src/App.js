@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    getData("https://rancid-tomatillos.herokuapp.com/api/v2/movie")
+    getData("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
       .then(data => {this.setState({movies: data.movies})})
       .catch(error => {
         this.setState({error:error.message})
