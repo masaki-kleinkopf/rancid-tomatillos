@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import GridMovie from "./GridMovie"
 import "../css/Main.css"
 
@@ -12,7 +12,7 @@ function Main ({movies, movieInFocus, gridView, displaySingleMovie}) {
   })
 
   return(
-      <main>
+      <main className={gridView ? "main-grid" : "main-single"}>
         {gridView ? movieCards : <h1>helloWorld</h1>}
       </main>
     )
