@@ -3,7 +3,6 @@ import React from "react"
 function SingleMovie ({movieInFocus, movies}) {
 
   const correctMovie = movies.find(movie => movie.id === movieInFocus)
-  console.log(correctMovie)
 
   return (
     <div>
