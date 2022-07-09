@@ -20,6 +20,9 @@ class App extends Component {
   };
 
   toggleGridView = () => {
+    if (this.state.movieInFocus) {
+      this.setState({movieInFocus: null})
+    }
     this.setState({gridView: !this.state.gridView})
   }
 
