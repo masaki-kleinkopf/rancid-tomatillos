@@ -1,5 +1,6 @@
 import React from "react"
 import GridMovie from "./GridMovie"
+import SingleMovie from "./SingleMovie"
 import "../css/Main.css"
 
 function Main ({movies, movieInFocus, gridView, displaySingleMovie}) {
@@ -13,7 +14,7 @@ function Main ({movies, movieInFocus, gridView, displaySingleMovie}) {
 
   return(
       <main className={gridView ? "main-grid" : "main-single"}>
-        {gridView ? movieCards : <h1>helloWorld</h1>}
+        {gridView ? movieCards : <SingleMovie movieInFocus={movieInFocus}/>}
       </main>
     )
 
