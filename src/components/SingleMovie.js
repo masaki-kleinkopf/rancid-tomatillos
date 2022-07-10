@@ -24,7 +24,6 @@ class SingleMovie extends React.Component {
   render() {
     
     const { correctMovie, error } = this.state;
-    console.log(correctMovie.genres)
 
     return error ? <p className="error">Uh oh! Something went wrong</p>: 
       <div className="SingleMovie" style={{
