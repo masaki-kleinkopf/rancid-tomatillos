@@ -23,12 +23,12 @@ class SingleMovie extends React.Component {
 
   render() {
     
-    const { correctMovie, error } = this.state;
+    const { correctMovie:{title, backdrop_path, tagline, overview, average_rating,release_date,genres, revenue, budget}, error } = this.state;
 
     return error ? <p className="error">Uh oh! Something went wrong</p>: 
       <div className="SingleMovie" style={{
           backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
-          url(${correctMovie.backdrop_path})`,
+          url(${backdrop_path})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
@@ -36,14 +36,14 @@ class SingleMovie extends React.Component {
           height:'100vh'
           }}>
           <h3 className="single-movie-title"> 
-            {correctMovie.title}
-            <p className="single-movie-tagline"> {correctMovie.tagline}</p>
+            {title}
+            <p className="single-movie-tagline"> {tagline}</p>
           </h3>
           <div className="single-movie-info-container">
-            <p className="single-movie-overview">Overview:<br></br>{correctMovie.overview}</p>
-            <p>Average User Rating: {Math.round(correctMovie.average_rating)}</p>
+            <p className="single-movie-overview">Overview:<br></br>{overview}</p>
+            <p>Average User Rating: {Math.round(average_rating)}</p>
             <div className="single-movie-info">
-              Release Date: {correctMovie.release_date} {!!correctMovie.genres && <p>Genre: {correctMovie.genres.join(", ")}</p>} {!!correctMovie.revenue && <p>Revenue: ${correctMovie.revenue}</p>} {!!correctMovie.budget  && <p>Budget: ${correctMovie.budget}</p>}
+              Release Date: {release_date} {!!genres && <p>Genre: {genres.join(", ")}</p>} {!!revenue && <p>Revenue: ${revenue}</p>} {!!budget  && <p>Budget: ${budget}</p>}
             </div>
           </div>
         </div>
