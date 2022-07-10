@@ -6,10 +6,7 @@ const getData = (url) => {
         } else {
           return response.json()
         }
-      })
-    //   .catch(error => {
-    //     this.setState({error:error.message})
-    //   })
-    }
+    })
+}
 
 export default getData 
