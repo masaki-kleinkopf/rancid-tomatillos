@@ -24,6 +24,7 @@ class SingleMovie extends React.Component {
   render() {
     
     const { correctMovie, error } = this.state;
+    console.log(correctMovie.genres)
 
     return error ? <p className="error">Uh oh! Something went wrong</p>: 
       <div className="SingleMovie" style={{
@@ -43,10 +44,11 @@ class SingleMovie extends React.Component {
             <p className="single-movie-overview">Overview:<br></br>{correctMovie.overview}</p>
             <p>Average User Rating: {Math.round(correctMovie.average_rating)}</p>
             <p className="single-movie-info">
-              Release Date: {correctMovie.release_date} Genre:{correctMovie.genres} Revenue: ${correctMovie.revenue} Budget: ${correctMovie.budget}
+              Release Date: {correctMovie.release_date} {!!correctMovie.genres && <p>Genre: {correctMovie.genres.join(", ")}</p>} {!!correctMovie.revenue && <p>Revenue: ${correctMovie.revenue}</p>} {!!correctMovie.budget  && <p>Budget: ${correctMovie.budget}</p>}
             </p>
           </div>
         </div>
+        
       
    
 
@@ -79,5 +81,6 @@ class SingleMovie extends React.Component {
   // }
 }
 }
+
 
 export default SingleMovie;
