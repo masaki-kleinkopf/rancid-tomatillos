@@ -43,7 +43,10 @@ class SingleMovie extends React.Component {
             <p className="single-movie-overview">Overview:<br></br>{overview}</p>
             <p>Average User Rating: {Math.round(average_rating)}</p>
             <div className="single-movie-info">
-              Release Date: {release_date} {!!genres && <p>Genre: {genres.join(", ")}</p>} {!!revenue && <p>Revenue: ${revenue}</p>} {!!budget  && <p>Budget: ${budget}</p>}
+              <p>Release Date: {release_date}</p>
+              {!!genres && <p>Genre: {genres.join(", ")}</p>} 
+              {!!revenue && <p>Revenue: ${revenue}</p>} 
+              {!!budget  && <p>Budget: ${budget}</p>}
             </div>
           </div>
         </div>
