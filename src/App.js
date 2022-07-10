@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Main from "./components/Main"
 import './App.css';
 import movieData from "./sample-data"
+import getData from "./apiCalls"
 
 class App extends Component {
 
@@ -11,12 +12,17 @@ class App extends Component {
     this.state = {
       movies: [],
       gridView: true,
-      movieInFocus: null
+      movieInFocus: null,
+      error:"",
     };
   }
 
   componentDidMount = () => {
-    this.setState({movies: movieData.movies})
+    getData("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+      .then(data => {this.setState({movies: data.movies})})
+      .catch(error => {
+        this.setState({error:error.message})
+      })
   };
 
   toggleGridView = () => {
@@ -40,6 +46,7 @@ class App extends Component {
           gridView={this.state.gridView} 
           movies={this.state.movies}
           movieInFocus={this.state.movieInFocus}/>
+          {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
     );
   }
