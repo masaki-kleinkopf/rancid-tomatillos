@@ -23,7 +23,7 @@ class SingleMovie extends React.Component {
 
   render() {
     
-    const { correctMovie:{title, backdrop_path, tagline, overview, average_rating,release_date,genres, revenue, budget}, error } = this.state;
+    const { correctMovie:{title, backdrop_path, tagline, overview, average_rating, release_date, genres, revenue, budget}, error } = this.state;
 
     return error ? <p className="error">Uh oh! Something went wrong</p>: 
       <div className="SingleMovie" style={{
