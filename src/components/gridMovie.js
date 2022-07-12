@@ -1,7 +1,7 @@
 import React from "react"
 import "../css/GridMovie.css"
 
-function GridMovie({movieData, toggleGridView}) {
+function GridMovie({ movieData }) {
 
     return (
       <div className="GridMovie" >

@@ -42,11 +42,9 @@ class App extends Component {
           gridView={this.state.gridView}/>
         <Route exact path = "/" render = {()=>  
           <GridView toggleGridView={this.toggleGridView}
-            // gridView={this.state.gridView} 
-            movies={this.state.movies}
-            movieInFocus={this.state.movieInFocus}/>} />
-          <Route exact path = "/:id" render = {({match})=>  
-            <SingleMovie movieInFocus={match.params.id} movies={this.state.movies}/>} />
+            movies={this.state.movies}/>} />
+          <Route exact path = "/:movieId" render = {({match})=>  
+            <SingleMovie id={match.params.movieId} />} />
           {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
     );

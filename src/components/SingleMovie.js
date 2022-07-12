@@ -7,7 +7,7 @@ class SingleMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id:props.movieInFocus,
+      id:props.id,
       correctMovie:{},
       error:""
     }
