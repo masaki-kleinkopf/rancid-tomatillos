@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import Header from "./components/Header"
-import Main from "./components/Main"
+import GridView from "./components/GridView"
 import './App.css';
 import movieData from "./sample-data"
 import getData from "./apiCalls"
+import SingleMovie from "./components/SingleMovie"
+import { Route } from "react-router-dom"
 
 class App extends Component {
 
@@ -12,7 +14,6 @@ class App extends Component {
     this.state = {
       movies: [],
       gridView: true,
-      movieInFocus: null,
       error:"",
     };
   }
@@ -26,9 +27,6 @@ class App extends Component {
   };
 
   toggleGridView = () => {
-    if (this.state.movieInFocus) {
-      this.setState({movieInFocus: null})
-    }
     this.setState({gridView: !this.state.gridView})
   }
 
@@ -42,10 +40,13 @@ class App extends Component {
       <div className="App">
         <Header toggleGridView={this.toggleGridView}
           gridView={this.state.gridView}/>
-        <Main displaySingleMovie={this.displaySingleMovie}
-          gridView={this.state.gridView} 
-          movies={this.state.movies}
-          movieInFocus={this.state.movieInFocus}/>
+        <Route exact path = "/" render = {()=>  
+          <GridView toggleGridView={this.toggleGridView}
+            // gridView={this.state.gridView} 
+            movies={this.state.movies}
+            movieInFocus={this.state.movieInFocus}/>} />
+          <Route exact path = "/:id" render = {({match})=>  
+            <SingleMovie movieInFocus={match.params.id} movies={this.state.movies}/>} />
           {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
     );
