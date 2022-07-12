@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import Header from "./components/Header"
 import GridView from "./components/GridView"
 import './App.css';
-import movieData from "./sample-data"
 import getData from "./apiCalls"
 import SingleMovie from "./components/SingleMovie"
 import { Route } from "react-router-dom"
@@ -30,20 +29,15 @@ class App extends Component {
     this.setState({gridView: !this.state.gridView})
   }
 
-  displaySingleMovie = (id) => {
-    this.toggleGridView();
-    this.setState({movieInFocus: id})
-  }
-
   render() {
     return (
       <div className="App">
         <Header toggleGridView={this.toggleGridView}
           gridView={this.state.gridView}/>
-        <Route exact path = "/" render = {()=>  
+        <Route exact path="/" render={()=>  
           <GridView toggleGridView={this.toggleGridView}
             movies={this.state.movies}/>} />
-          <Route exact path = "/:movieId" render = {({match})=>  
+          <Route exact path="/:movieId" render={({match})=>  
             <SingleMovie id={match.params.movieId} />} />
           {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
