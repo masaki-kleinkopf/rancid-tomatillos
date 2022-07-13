@@ -1,6 +1,7 @@
 import React from "react"
 import "../css/SingleMovie.css"
 import getData from "../apiCalls"
+import dayjs from "dayjs"
 
 
 class SingleMovie extends React.Component {
@@ -24,6 +25,8 @@ class SingleMovie extends React.Component {
   render() {
     
     const { correctMovie:{title, backdrop_path, tagline, overview, average_rating, release_date, genres, revenue, budget}, error } = this.state;
+    const rating = average_rating ? `${average_rating.toFixed(2)}/10` : null
+
 
     return error ? <p className="error">Uh oh! Something went wrong</p>: 
       <div className="SingleMovie" style={{
@@ -41,9 +44,9 @@ class SingleMovie extends React.Component {
           </h3>
           <div className="single-movie-info-container">
             <p className="single-movie-overview">Overview:<br></br>{overview}</p>
-            <p>Average User Rating: {Math.round(average_rating)}</p>
+            <p>Average User Rating: {average_rating ? rating : average_rating}</p>
             <div className="single-movie-info">
-              <p>Release Date: {release_date}</p>
+              <p>Release Date: {dayjs(release_date).format('MMMM D, YYYY')}</p>
               {!!genres && <p>Genre: {genres.join(", ")}</p>} 
               {!!revenue && <p>Revenue: ${revenue}</p>} 
               {!!budget  && <p>Budget: ${budget}</p>}
