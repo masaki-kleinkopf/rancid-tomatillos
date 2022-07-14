@@ -1,0 +1,94 @@
+import { scryRenderedComponentsWithType } from "react-dom/test-utils"
+
+describe('empty spec', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000')
+    cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
+      statusCode: 201,
+      body: {
+        "movies": [
+        {
+        "id": 694919,
+        "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+        "title": "Money Plane",
+        "average_rating": 6.875,
+        "release_date": "2020-09-29"
+        }
+      ]}
+    })
+
+    cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919", {
+    statusCode: 201,
+    body: {
+      "movie": {
+      "id": 694919,
+      "title": "Money Plane",
+      "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+      "release_date": "2020-09-29",
+      "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
+      "genres": [
+      "Action"
+      ],
+      "budget": 0,
+      "revenue": 0,
+      "runtime": 82,
+      "tagline": "",
+      "average_rating": 6.875
+      }
+      }
+  })
+  })
+
+  it("should start at landing page", () => {
+    cy.contains("Rancid Tomatillos")
+  })
+
+  it("should take a user to a new page when movie poster is clicked", () => {
+    cy.get(".GridMovie")
+    .click()
+    .url()
+    .should("include", "694919")
+  })
+
+  it("should show a movies details", () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get(".SingleMovie")
+    cy.contains("Money Plane")
+    cy.contains("Overview:")
+    cy.contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist")
+    cy.contains("Average User Rating: 6.88/10")
+    cy.contains("Release Date: September 29, 2020")
+    cy.contains("Genre: Action")
+  })
+
+  it("should have a corresponding background image", () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get(".SingleMovie")
+    .should("have.css", "background-image")
+    .should("include", "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")
+  })
+
+  it('Should show a header', () => {
+    cy.contains('header', 'Rancid Tomatillos')
+  });
+
+  it('Should not contain an error message', () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.contains('Oops! Something went wrong!').should('not.exist')
+  });
+
+  it("Should have a button taking user back to main page",() => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get("button")
+    .contains("button", "Return to all movies")
+    .click()
+    cy.contains('.GridMovie', 'Money Plane')
+  })
+})
+
