@@ -5,6 +5,9 @@ header {
   height: 80px;
   background: linear-gradient(#A52422, #881412 );
   margin-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .header-text {
