@@ -18,4 +18,4 @@ function Header({gridView, toggleGridView}) {
   )
 }
 
-export default Header;
+export default Header
