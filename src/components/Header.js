@@ -7,11 +7,12 @@ function Header({gridView, toggleGridView}) {
   return (
     <header>
       <h1 className="header-text">Rancid Tomatillos</h1>
-      {!gridView && 
-      <Link to = "/">
-        <button className="header-toggle-button"onClick={toggleGridView}>Return to all movies</button>
+      {!gridView && <Link to = "/">
+        <button 
+          className="header-toggle-button"
+          onClick={toggleGridView}>Return to all movies
+        </button>
       </Link>
-      
       }
     </header>
   )
