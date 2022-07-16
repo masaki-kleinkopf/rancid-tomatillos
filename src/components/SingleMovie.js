@@ -1,6 +1,7 @@
 import React from "react"
 import "../css/SingleMovie.css"
 import getData from "../apiCalls"
+import { Link } from "react-router-dom"
 import dayjs from "dayjs"
 
 
@@ -25,10 +26,14 @@ class SingleMovie extends React.Component {
   render() {
     
     const { correctMovie:{title, backdrop_path, tagline, overview, average_rating, release_date, genres, revenue, budget}, error } = this.state;
-    const rating = average_rating ? `${average_rating.toFixed(2)}/10` : null
+    const rating = average_rating && `${average_rating.toFixed(2)}/10`
 
 
-    return error ? <p className="error">Uh oh! Something went wrong</p>: 
+    return error ? 
+    <div className="error-element">
+      <p className="error">Oh no, looks like this movie doesn't exist!</p>
+      <Link to="/"><button className="toggle-button">Back to all movies</button></Link>
+    </div>: 
       <div className="SingleMovie" style={{
           backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
           url(${backdrop_path})`,
