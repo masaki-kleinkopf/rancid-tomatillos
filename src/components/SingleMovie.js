@@ -7,7 +7,7 @@ import dayjs from "dayjs"
 
 class SingleMovie extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       id:props.id,
       correctMovie:{},
@@ -28,7 +28,6 @@ class SingleMovie extends React.Component {
     
     const { correctMovie:{title, backdrop_path, tagline, overview, average_rating, release_date, genres, revenue, budget}, error } = this.state;
     const rating = average_rating && `${average_rating.toFixed(2)}/10`
-
 
     return error ? 
     <div className="error-element">

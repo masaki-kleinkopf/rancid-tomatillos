@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Header from "./components/Header"
 import GridView from "./components/GridView"
-import './App.css';
+import './App.css'
 import getData from "./apiCalls"
 import SingleMovie from "./components/SingleMovie"
 import { Route } from "react-router-dom"
@@ -9,12 +9,12 @@ import { Route } from "react-router-dom"
 class App extends Component {
 
   constructor() {
-    super();
+    super()
     this.state = {
       movies: [],
       gridView: true,
       error:"",
-    };
+    }
   }
 
   componentDidMount = () => {
@@ -23,7 +23,7 @@ class App extends Component {
       .catch(error => {
         this.setState({error:error.message})
       })
-  };
+  }
 
   toggleGridView = () => {
     this.setState({gridView: !this.state.gridView})
@@ -46,8 +46,8 @@ class App extends Component {
             setGridViewFalse={this.setGridViewFalse}/>} />
           {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

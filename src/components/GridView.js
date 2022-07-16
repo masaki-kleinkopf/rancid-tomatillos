@@ -8,9 +8,9 @@ function GridView ({movies, toggleGridView}) {
   const movieCards = movies.map(movie => {
     return (
       <Link 
+        key={movie.id}
         to={`/${movie.id}`} 
         onClick={toggleGridView} 
-        key={movie.id}
       >
         <GridMovie movieData={movie}/>
       </Link>
@@ -22,7 +22,6 @@ function GridView ({movies, toggleGridView}) {
         {movieCards}
       </main>
     )
-
 }
 
-export default GridView;
+export default GridView
