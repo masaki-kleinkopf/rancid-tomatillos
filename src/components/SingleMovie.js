@@ -43,7 +43,7 @@ class SingleMovie extends React.Component {
             <p className="single-movie-tagline"> {tagline}</p>
           </h3>
           <div className="poster-info-container">
-            <div className="GridMovie">
+            <div className="single-movie-poster">
                 <img 
                   src={poster_path}
                   alt={`Poster for ${title}`}
