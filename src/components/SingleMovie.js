@@ -6,7 +6,7 @@ import dayjs from "dayjs"
 
 class SingleMovie extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       id:props.id,
       correctMovie:{},
@@ -29,14 +29,9 @@ class SingleMovie extends React.Component {
 
 
     return error ? <p className="error">Uh oh! Something went wrong</p>: 
-      <div className="SingleMovie" style={{
-          backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
-          url(${backdrop_path})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          width:'100vw',
-          height:'100vh'
+      <div className="SingleMovie"
+        style={{
+          backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%), url(${backdrop_path})`
           }}>
           <h3 className="single-movie-title"> 
             {title}
