@@ -29,6 +29,10 @@ class App extends Component {
     this.setState({gridView: !this.state.gridView})
   }
 
+  setGridViewFalse = () => {
+    this.setState({gridView: false})
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,7 +42,8 @@ class App extends Component {
           <GridView toggleGridView={this.toggleGridView}
             movies={this.state.movies}/>} />
           <Route exact path="/:movieId" render={({match})=>  
-            <SingleMovie id={match.params.movieId} />} />
+            <SingleMovie id={match.params.movieId} 
+            setGridViewFalse={this.setGridViewFalse}/>} />
           {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
     );
