@@ -79,7 +79,7 @@ describe('empty spec', () => {
   it('Should not contain an error message', () => {
     cy.get(".GridMovie")
     .click()
-    cy.contains('Oops! Something went wrong!').should('not.exist')
+    cy.contains('Oh no, looks like this movie doesn\'t exist!').should('not.exist')
   });
 
   it("Should have a button taking user back to main page",() => {
@@ -89,6 +89,10 @@ describe('empty spec', () => {
     .contains("button", "Return to all movies")
     .click()
     cy.contains('.GridMovie', 'Money Plane')
-  })
+  });
+
+  it('Should have a back button if the user goes directly to the movie URL', () => {
+    cy.visit('http://localhost:3000/694919').contains("button", "Return to all movies")
+  });
 })
 
