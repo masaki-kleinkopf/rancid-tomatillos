@@ -37,11 +37,6 @@ class SingleMovie extends React.Component {
       <div className="SingleMovie" style={{
           backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
           url(${backdrop_path})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          width:'100vw',
-          height:'100vh'
           }}>
           <h3 className="single-movie-title"> 
             {title}

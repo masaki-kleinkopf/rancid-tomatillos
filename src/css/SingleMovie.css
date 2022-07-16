@@ -1,7 +1,6 @@
 .SingleMovie {
     display:flex;
     flex-direction: column;
-    margin-top: -20px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,6 +26,10 @@
 .error-element {
     height: 100vh;
     text-align: center;
+}
+
+.error{
+    padding-top:90px;
 }
 
 .toggle-button {

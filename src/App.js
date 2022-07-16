@@ -36,14 +36,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header toggleGridView={this.toggleGridView}
-          gridView={this.state.gridView}/>
-        <Route exact path="/" render={()=>  
-          <GridView toggleGridView={this.toggleGridView}
-            movies={this.state.movies}/>} />
-          <Route exact path="/:movieId" render={({match})=>  
-            <SingleMovie id={match.params.movieId} 
-            setGridViewFalse={this.setGridViewFalse}/>} />
+        <Header 
+          toggleGridView={this.toggleGridView}
+          gridView={this.state.gridView}
+          />
+        <Route 
+          exact path="/" 
+          render={()=>  
+            <GridView toggleGridView={this.toggleGridView}
+              movies={this.state.movies}/>} />
+            <Route exact path="/:movieId" 
+              render={({match})=>  
+                <SingleMovie id={match.params.movieId} 
+                setGridViewFalse={this.setGridViewFalse}
+                />} 
+              />
           {this.state.error && <p>Oops! Something went wrong!</p>}
       </div>
     )
