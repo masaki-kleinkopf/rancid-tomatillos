@@ -26,7 +26,7 @@ class SingleMovie extends React.Component {
 
   render() {
     
-    const { correctMovie:{title, backdrop_path, tagline, overview, average_rating, release_date, genres, revenue, budget}, error } = this.state;
+    const { correctMovie:{title, poster_path, backdrop_path, tagline, overview, average_rating, release_date, genres, revenue, budget}, error } = this.state;
     const rating = average_rating && `${average_rating.toFixed(2)}/10`
 
     return error ? 
@@ -47,14 +47,25 @@ class SingleMovie extends React.Component {
             {title}
             <p className="single-movie-tagline"> {tagline}</p>
           </h3>
-          <div className="single-movie-info-container">
-            <p className="single-movie-overview">Overview:<br></br>{overview}</p>
-            <p>Average User Rating: {average_rating ? rating : average_rating}</p>
-            <div className="single-movie-info">
-              <p>Release Date: {dayjs(release_date).format('MMMM D, YYYY')}</p>
-              {!!genres && <p>Genre: {genres.join(", ")}</p>} 
-              {!!revenue && <p>Revenue: ${revenue}</p>} 
-              {!!budget  && <p>Budget: ${budget}</p>}
+          <div className="poster-info-container">
+            <div className="GridMovie">
+                <img 
+                  src={poster_path}
+                  alt={`Poster for ${title}`}
+                  height="300" 
+                  width="200"
+                  className="grid-movie-image"
+                />
+            </div>
+            <div className="single-movie-info-container">
+              <p className="single-movie-overview">Overview:<br></br>{overview}</p>
+              <p>Average User Rating: {average_rating ? rating : average_rating}</p>
+              <div className="single-movie-info">
+                <p>Release Date: {dayjs(release_date).format('MMMM D, YYYY')}</p>
+                {!!genres && <p>Genre: {genres.join(", ")}</p>} 
+                {!!revenue && <p>Revenue: ${revenue}</p>} 
+                {!!budget  && <p>Budget: ${budget}</p>}
+              </div>
             </div>
           </div>
         </div>

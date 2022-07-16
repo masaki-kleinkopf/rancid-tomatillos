@@ -21,6 +21,7 @@
 
 .single-movie-info-container {
     margin-left :3%;
+    margin-right:3%;
 }
 
 .error-element {
@@ -37,4 +38,18 @@
     font-family: 'Julius Sans One', sans-serif;
     font-size: 15px;
     border-radius: 10px;
+  }
+
+  .GridMovie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    margin-left: 2%;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .poster-info-container{
+    display:flex;
   }
