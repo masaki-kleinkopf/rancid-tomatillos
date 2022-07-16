@@ -48,7 +48,14 @@ describe('Grid View', () => {
         }]
 
       }
-    })
+    });
+
+    cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies/42", {
+      statusCode: 404,
+      body: {
+        error: "No movie found with id:42"
+      }
+    });
   });
 
   it('Should show a header', () => {
@@ -67,7 +74,22 @@ describe('Grid View', () => {
     cy.get('img').should('have.class', 'grid-movie-image')
   });
 
-  it('Should not contain an error message', () => {
-    cy.contains('Oops! Something went wrong!').should('not.exist')
+  it('Should not contain an error message at localhost:3000', () => {
+    cy.contains('Uh oh! Something went wrong').should('not.exist')
   });
+
+  it('Should contain an error message when user goes to a url that doesn\'t exist', () => {
+    cy.visit('http://localhost:3000/42').contains('Oh no, looks like this movie doesn\'t exist!')
+  });
+
+  it('Should have a back button to take the user back to grid view when they go to a page that doesn\'t exist', () => {
+    cy.visit('http://localhost:3000/42').contains('Back to all movies');
+  });
+
+  it('Back button takes the user back to the landing page', () => {
+    cy.visit('http://localhost:3000/42')
+    cy.get('.toggle-button').click()
+    cy.contains('Money Plane')
+  });
+  
 })
