@@ -73,6 +73,11 @@ describe('Grid View', () => {
   it('Should have movie images', () => {
     cy.get('img').should('have.class', 'grid-movie-image')
   });
+  
+  it('Should have movie images with alt tags', () => {
+    cy.get('img').first().should('have.attr', 'alt').should("include", "Poster for Money Plane")
+  });
+
 
   it('Should not contain an error message at localhost:3000', () => {
     cy.contains('Uh oh! Something went wrong').should('not.exist')

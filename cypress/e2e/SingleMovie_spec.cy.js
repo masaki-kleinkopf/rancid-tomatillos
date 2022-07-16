@@ -1,3 +1,4 @@
+import { useTransition } from "react"
 import { scryRenderedComponentsWithType } from "react-dom/test-utils"
 
 describe('empty spec', () => {
@@ -64,6 +65,22 @@ describe('empty spec', () => {
     cy.contains("Genre: Action")
   })
 
+  it("should have a movie poster display", () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get("img")
+    .should('have.attr', 'src')
+    .should("include", "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
+  })
+
+  it("should have a movie poster with alt tag", () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get("img")
+    .should('have.attr', 'alt')
+    .should("include", "Poster for Money Plane")
+  })
+  
   it("should have a corresponding background image", () => {
     cy.get(".GridMovie")
     .click()
