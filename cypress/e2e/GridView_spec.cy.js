@@ -83,7 +83,13 @@ describe('Grid View', () => {
   });
 
   it('Should have a back button to take the user back to grid view when they go to a page that doesn\'t exist', () => {
-    cy.visit('http://localhost:3000/42').contains('button');
-  })
+    cy.visit('http://localhost:3000/42').contains('Back to all movies');
+  });
+
+  it('Back button takes the user back to the landing page', () => {
+    cy.visit('http://localhost:3000/42')
+    cy.get('.toggle-button').click()
+    cy.contains('Money Plane')
+  });
   
 })
