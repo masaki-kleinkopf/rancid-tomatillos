@@ -41,6 +41,13 @@ describe('Grid View', () => {
     cy.visit('http://localhost:3000/42').contains('Oh no, looks like this movie doesn\'t exist!')
   });
 
+  it('Should contain an error image when user goes to a url that doesn\'t exist', () => {
+    cy.visit('http://localhost:3000/42')
+    cy.get('img')
+    .should('have.attr', 'src')
+    .should('include', 'https://i.imgur.com/LPrBf4g.png')
+  });
+
   it('Should have a back button to take the user back to grid view when they go to a page that doesn\'t exist', () => {
     cy.visit('http://localhost:3000/42').contains('Back to all movies');
   });

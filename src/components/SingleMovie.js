@@ -21,6 +21,7 @@ class SingleMovie extends React.Component {
       .then(data => {this.setState({correctMovie: data.movie})})
       .catch(error => {
         this.setState({error:error.message})
+        
       })
     }
 
