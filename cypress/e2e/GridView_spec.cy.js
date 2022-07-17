@@ -78,7 +78,6 @@ describe('Grid View', () => {
     cy.get('img').first().should('have.attr', 'alt').should("include", "Poster for Money Plane")
   });
 
-
   it('Should not contain an error message at localhost:3000', () => {
     cy.contains('Uh oh! Something went wrong').should('not.exist')
   });
@@ -89,6 +88,10 @@ describe('Grid View', () => {
 
   it('Should have a back button to take the user back to grid view when they go to a page that doesn\'t exist', () => {
     cy.visit('http://localhost:3000/42').contains('Back to all movies');
+  });
+
+  it('Should have a back button to take the user back to grid view when they go to another page that doesn\'t exist', () => {
+    cy.visit('http://localhost:3000/shrek').contains('Back to all movies');
   });
 
   it('Back button takes the user back to the landing page', () => {
