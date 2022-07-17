@@ -21,6 +21,10 @@
 .single-movie-info-container {
     margin-left :3%;
     margin-right:3%;
+    width: 700px;
+    background: linear-gradient(#080F0F, #422e0f);
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .error-element {
@@ -51,6 +55,7 @@
     margin-left: 2%;
     padding: 5px;
     border-radius: 5px;
+    border: 2px solid #A52422
   }
 
   .poster-info-container{
@@ -60,4 +65,8 @@
   .toggle-button:hover {
     background-color: #EFF2C0;
     cursor: pointer;
+  }
+
+  .movie-info-type {
+    font-size: 30px;
   }
