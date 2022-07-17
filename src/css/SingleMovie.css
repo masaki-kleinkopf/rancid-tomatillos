@@ -56,3 +56,8 @@
   .poster-info-container{
     display:flex;
   }
+
+  .toggle-button:hover {
+    background-color: #EFF2C0;
+    cursor: pointer;
+  }
