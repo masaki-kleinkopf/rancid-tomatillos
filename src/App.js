@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({gridView: true});
     getData("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
       .then(data => {this.setState({movies: data.movies})})
       .catch(error => {

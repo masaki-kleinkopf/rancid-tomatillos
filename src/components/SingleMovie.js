@@ -32,7 +32,14 @@ class SingleMovie extends React.Component {
     return error ? 
     <div className="error-element">
       <p className="error">Oh no, looks like this movie doesn't exist!</p>
-      <Link to="/"><button className="toggle-button">Back to all movies</button></Link>
+      <img 
+        className="error-img" 
+        src="https://i.imgur.com/LPrBf4g.png" 
+        alt="Back to the future we've gotta go back"
+      />
+      <Link to="/">
+        <button className="toggle-button">Back to all movies</button>
+      </Link>
     </div>: 
       <div className="SingleMovie" style={{
           backgroundImage:`linear-gradient(to bottom, transparent 0%, black 60%),
@@ -53,13 +60,13 @@ class SingleMovie extends React.Component {
                 />
             </div>
             <div className="single-movie-info-container">
-              <p className="single-movie-overview">Overview:<br></br>{overview}</p>
-              <p>Average User Rating: {average_rating ? rating : average_rating}</p>
+              <p className="single-movie-overview"><span className="overview">Overview:</span><br></br>{overview}</p>
+              <p><span className="movie-info-type">Average User Rating: </span>{average_rating ? rating : average_rating}</p>
               <div className="single-movie-info">
-                <p>Release Date: {dayjs(release_date).format('MMMM D, YYYY')}</p>
-                {!!genres && <p>Genre: {genres.join(", ")}</p>} 
-                {!!revenue && <p>Revenue: ${revenue}</p>} 
-                {!!budget  && <p>Budget: ${budget}</p>}
+                <p><span className="movie-info-type">Release Date: </span>{dayjs(release_date).format('MMMM D, YYYY')}</p>
+                {!!genres && <p><span className="movie-info-type">Genre: </span>{genres.join(", ")}</p>} 
+                {!!revenue && <p><span className="movie-info-type">Revenue: </span>${revenue}</p>} 
+                {!!budget  && <p><span className="movie-info-type">Budget: </span>${budget}</p>}
               </div>
             </div>
           </div>
