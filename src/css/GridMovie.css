@@ -8,9 +8,9 @@
 }
 
 .GridMovie:hover {
-  background-color:#A52422;
+  background-color:#781715;
   cursor: pointer;
-  box-shadow: 0px 0px 10px 10px #EFF2C0;
+  box-shadow: 0px 0px 10px 10px #6c6f46;
 }
 
 .movie-title {

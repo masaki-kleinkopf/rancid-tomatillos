@@ -11,8 +11,18 @@
 .single-movie-title {
     font-size :xxx-large;
     margin-top: 21%;
-    margin-left: 7%;
+    margin-left: 7%; 
+    animation: glow 2s ease-in-out infinite alternate;
 }
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #A52422, 0 0 40px #A52422, 0 0 50px #A52422, 0 0 60px #A52422, 0 0 70px #A52422;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #cf7e22, 0 0 40px #cf7e22, 0 0 50px #cf7e22, 0 0 60px #cf7e22, 0 0 70px #cf7e22, 0 0 80px #cf7e22;
+    }
+  }
 
 .single-movie-tagline {
     font-size: x-large;
@@ -21,7 +31,7 @@
 .single-movie-info-container {
     margin-left :3%;
     margin-right:3%;
-    width: 700px;
+    width: 900px;
     background: linear-gradient(#080F0F, #422e0f);
     padding: 30px;
     border-radius: 10px;
@@ -29,16 +39,35 @@
 
 .error-element {
     height: 100vh;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-img {
+    height: 500px;
+    width: 500px;
 }
 
 .error{
     padding-top:90px;
+    font-size: 40px;
+    animation: glow 2s ease-in-out infinite alternate;
 }
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #A52422, 0 0 40px #A52422, 0 0 50px #A52422, 0 0 60px #A52422, 0 0 70px #A52422;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #cf7e22, 0 0 40px #cf7e22, 0 0 50px #cf7e22, 0 0 60px #cf7e22, 0 0 70px #cf7e22, 0 0 80px #cf7e22;
+    }
+  }
 
 .toggle-button {
     border: none;
-    background-color: #A4BAB7;
+    background-color: #b3baa4;
     height: 30px;
     width: 200px;
     margin: 20px;
@@ -55,18 +84,26 @@
     margin-left: 2%;
     padding: 5px;
     border-radius: 5px;
-    border: 2px solid #A52422
+    border: 2px solid #A52422;
   }
 
   .poster-info-container{
     display:flex;
+    justify-content: center;
   }
 
   .toggle-button:hover {
     background-color: #EFF2C0;
     cursor: pointer;
+    box-shadow: 0px 0px 10px 10px rgb(246, 180, 49);
+  }
+
+  .overview {
+    font-size: 25px;
+    color:#dbb054;
   }
 
   .movie-info-type {
-    font-size: 30px;
+    font-size: 20px;
+    color:#dbb054;
   }
