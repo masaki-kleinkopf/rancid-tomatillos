@@ -19,7 +19,8 @@ Now that you've got access to Rancid Tomatillos, feel free to browse through the
 
 #### See it in action!!
 
-*[ GIF goes here???? ]*
+![rancid-small-gif](https://user-images.githubusercontent.com/97985027/179608552-372f2874-b70e-4037-8047-6270a1bd0234.gif)
+
 
 #### Technologies used:
 - React
