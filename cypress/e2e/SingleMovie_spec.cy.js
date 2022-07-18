@@ -1,44 +1,14 @@
+import { useTransition } from "react"
 import { scryRenderedComponentsWithType } from "react-dom/test-utils"
+
 
 describe('empty spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
     cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
       statusCode: 201,
-      body: {
-        "movies": [
-        {
-        "id": 694919,
-        "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        "title": "Money Plane",
-        "average_rating": 6.875,
-        "release_date": "2020-09-29"
-        }
-      ]}
+      fixture: "SingleMovieData.json"
     })
-
-    cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919", {
-    statusCode: 201,
-    body: {
-      "movie": {
-      "id": 694919,
-      "title": "Money Plane",
-      "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-      "release_date": "2020-09-29",
-      "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
-      "genres": [
-      "Action"
-      ],
-      "budget": 0,
-      "revenue": 0,
-      "runtime": 82,
-      "tagline": "",
-      "average_rating": 6.875
-      }
-      }
-  })
   })
 
   it("should start at landing page", () => {
@@ -64,6 +34,22 @@ describe('empty spec', () => {
     cy.contains("Genre: Action")
   })
 
+  it("should have a movie poster display", () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get("img")
+    .should('have.attr', 'src')
+    .should("include", "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
+  })
+
+  it("should have a movie poster with alt tag", () => {
+    cy.get(".GridMovie")
+    .click()
+    cy.get("img")
+    .should('have.attr', 'alt')
+    .should("include", "Poster for Money Plane")
+  })
+  
   it("should have a corresponding background image", () => {
     cy.get(".GridMovie")
     .click()

@@ -16,9 +16,11 @@ class SingleMovie extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.setGridViewFalse()
     getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`)
-      .then(data => {this.setState({correctMovie: data.movie})})
+      .then(data => {
+        this.props.setGridViewFalse()
+        this.setState({correctMovie: data.movie})
+    })
       .catch(error => {
         this.setState({error:error.message})
       })
